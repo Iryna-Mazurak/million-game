@@ -1,10 +1,13 @@
-"use client";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { useGameContext } from "@/features/game/GameProvider";
-import Sidebar from "@/components/Sidebar";
-import QuestionCard from "@/components/QuestionCard";
-import config from "@/data/config.json";
+'use client';
+
+import { useRouter } from 'next/navigation';
+import React from 'react';
+import { useEffect } from 'react';
+
+import QuestionCard from '@/components/QuestionCard';
+import Sidebar from '@/components/Sidebar';
+import config from '@/data/config.json';
+import { useGameContext } from '@/features/game/GameProvider';
 
 export default function GamePage() {
   const { questions, setQuestions, currentIndex, correctQuestions } =
@@ -13,7 +16,7 @@ export default function GamePage() {
 
   useEffect(() => {
     if (questions.length && currentIndex >= questions.length) {
-      router.push("/finish");
+      router.push('/finish');
     }
   }, [currentIndex, questions.length, router]);
 

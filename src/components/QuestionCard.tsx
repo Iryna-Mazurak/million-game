@@ -1,13 +1,16 @@
-"use client";
-import { Question } from "@/types";
-import { useState, useEffect } from "react";
-import { useGameContext } from "@/features/game/GameProvider";
-import { useRouter } from "next/navigation";
-import AnswerButton from "@/components/AnswerButton";
+'use client';
 
-type Props = {
+import { useRouter } from 'next/navigation';
+import React from 'react';
+import { useState, useEffect } from 'react';
+
+import AnswerButton from '@/components/AnswerButton';
+import { useGameContext } from '@/features/game/GameProvider';
+import { Question } from '@/types';
+
+interface Props {
   question?: Question;
-};
+}
 
 export default function QuestionCard({ question }: Props) {
   const { answerCorrect, nextQuestion } = useGameContext();
@@ -20,7 +23,9 @@ export default function QuestionCard({ question }: Props) {
     setSelectedIds([]);
   }, [question?.id]);
 
-  if (!question) return null;
+  if (!question) {
+    return <p>Loading question...</p>; // або null
+  }
 
   const correctIds = question.answers
     .filter((a) => a.isCorrect)
@@ -36,13 +41,13 @@ export default function QuestionCard({ question }: Props) {
         answerCorrect(question);
         nextQuestion();
       } else {
-        router.push("/finish");
+        router.push('/finish');
       }
       return;
     }
 
     if (!answer.isCorrect) {
-      router.push("/finish");
+      router.push('/finish');
       return;
     }
 

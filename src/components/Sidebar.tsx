@@ -1,5 +1,8 @@
-import styles from "./Sidebar.module.css";
-import { Question } from "@/types";
+import React from 'react';
+
+import styles from './Sidebar.module.css';
+
+import { Question } from '@/types';
 
 type SidebarProps = {
   questions: Question[];
@@ -26,7 +29,7 @@ export default function Sidebar({
             <li
               key={q.id}
               className={`${styles.item} ${
-                isCurrent ? styles.current : isCorrect ? styles.correct : ""
+                isCurrent ? styles.current : isCorrect ? styles.correct : ''
               }`}
             >
               ${q.reward.toLocaleString()}

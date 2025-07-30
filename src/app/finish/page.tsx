@@ -1,6 +1,9 @@
-"use client";
-import { useGameContext } from "@/features/game/GameProvider";
-import Link from "next/link";
+'use client';
+
+import Link from 'next/link';
+import React from 'react';
+
+import { useGameContext } from '@/features/game/GameProvider';
 
 export default function FinishPage() {
   const { questions, currentIndex, resetGame } = useGameContext();
@@ -11,7 +14,7 @@ export default function FinishPage() {
     <main>
       <p>Your score:</p>
       <p>${reward.toLocaleString()}</p>
-      <Link href="/" onClick={resetGame}>
+      <Link href='/' onClick={resetGame}>
         Try Again
       </Link>
     </main>

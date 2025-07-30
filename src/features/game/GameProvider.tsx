@@ -1,6 +1,7 @@
-"use client";
-import React, { createContext, useState, useContext, useCallback } from "react";
-import { Question } from "@/types";
+'use client';
+import React, { createContext, useState, useContext, useCallback } from 'react';
+
+import { Question } from '@/types';
 
 type GameContextType = {
   questions: Question[];
@@ -58,6 +59,6 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({
 
 export const useGameContext = () => {
   const ctx = useContext(GameContext);
-  if (!ctx) throw new Error("useGameContext must be used within GameProvider");
+  if (!ctx) throw new Error('useGameContext must be used within GameProvider');
   return ctx;
 };

@@ -1,10 +1,11 @@
-import { GameProvider } from "@/features/game/GameProvider";
-import type { Metadata } from "next";
-import React from "react";
+import type { Metadata } from 'next';
+import React from 'react';
+
+import { GameProvider } from '@/features/game/GameProvider';
 
 export const metadata: Metadata = {
-  title: "Millionaire Game",
-  description: "Who wants to be a millionaire?",
+  title: 'Millionaire Game',
+  description: 'Who wants to be a millionaire?',
 };
 
 export default function RootLayout({
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>
         <GameProvider>{children}</GameProvider>
       </body>
