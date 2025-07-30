@@ -2,6 +2,7 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 import { FlatCompat } from '@eslint/eslintrc';
+import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -21,12 +22,16 @@ const config = [
 
   {
     files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
+    plugins: {
+      'react-hooks': reactHooks,
+    },
     languageOptions: {
       globals: {
         ...globals.browser,
       },
     },
     rules: {
+      ...reactHooks.configs.recommended.rules,
       'import/order': [
         'error',
         {
