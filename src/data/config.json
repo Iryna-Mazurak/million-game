@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "text": "Which language is primarily used for web development?",
+      "reward": 500,
+      "answers": [
+        { "id": "a", "text": "Python", "isCorrect": false },
+        { "id": "b", "text": "JavaScript", "isCorrect": true },
+        { "id": "c", "text": "C++", "isCorrect": false },
+        { "id": "d", "text": "Java", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Select all programming paradigms that JavaScript supports.",
+      "reward": 1000,
+      "answers": [
+        { "id": "a", "text": "Object-Oriented", "isCorrect": true },
+        { "id": "b", "text": "Functional", "isCorrect": true },
+        { "id": "c", "text": "Procedural", "isCorrect": true },
+        { "id": "d", "text": "Logic", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "What does CSS stand for?",
+      "reward": 2000,
+      "answers": [
+        { "id": "a", "text": "Computer Style Sheets", "isCorrect": false },
+        { "id": "b", "text": "Cascading Style Sheets", "isCorrect": true },
+        { "id": "c", "text": "Creative Style System", "isCorrect": false },
+        { "id": "d", "text": "Colorful Style Sheets", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Which HTTP methods are idempotent?",
+      "reward": 4000,
+      "answers": [
+        { "id": "a", "text": "GET", "isCorrect": true },
+        { "id": "b", "text": "POST", "isCorrect": false },
+        { "id": "c", "text": "PUT", "isCorrect": true },
+        { "id": "d", "text": "DELETE", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Which of the following are JavaScript frameworks?",
+      "reward": 8000,
+      "answers": [
+        { "id": "a", "text": "React", "isCorrect": true },
+        { "id": "b", "text": "Angular", "isCorrect": true },
+        { "id": "c", "text": "Laravel", "isCorrect": false },
+        { "id": "d", "text": "Vue", "isCorrect": true },
+        { "id": "e", "text": "Django", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Which data structure uses FIFO (First In, First Out)?",
+      "reward": 16000,
+      "answers": [
+        { "id": "a", "text": "Stack", "isCorrect": false },
+        { "id": "b", "text": "Queue", "isCorrect": true },
+        { "id": "c", "text": "Linked List", "isCorrect": false },
+        { "id": "d", "text": "Tree", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "Which of these are NoSQL databases?",
+      "reward": 32000,
+      "answers": [
+        { "id": "a", "text": "MongoDB", "isCorrect": true },
+        { "id": "b", "text": "PostgreSQL", "isCorrect": false },
+        { "id": "c", "text": "Redis", "isCorrect": true },
+        { "id": "d", "text": "MySQL", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 8,
+      "text": "What does API stand for?",
+      "reward": 64000,
+      "answers": [
+        { "id": "a", "text": "Application Programming Interface", "isCorrect": true },
+        { "id": "b", "text": "Applied Program Internet", "isCorrect": false },
+        { "id": "c", "text": "Advanced Programming Integration", "isCorrect": false },
+        { "id": "d", "text": "Application Protocol Interface", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 9,
+      "text": "Which are valid HTTP status codes?",
+      "reward": 125000,
+      "answers": [
+        { "id": "a", "text": "200", "isCorrect": true },
+        { "id": "b", "text": "301", "isCorrect": true },
+        { "id": "c", "text": "450", "isCorrect": false },
+        { "id": "d", "text": "500", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 10,
+      "text": "Which of these are version control systems?",
+      "reward": 250000,
+      "answers": [
+        { "id": "a", "text": "Git", "isCorrect": true },
+        { "id": "b", "text": "SVN", "isCorrect": true },
+        { "id": "c", "text": "Jenkins", "isCorrect": false },
+        { "id": "d", "text": "Mercurial", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 11,
+      "text": "Select the valid JavaScript data types.",
+      "reward": 500000,
+      "answers": [
+        { "id": "a", "text": "String", "isCorrect": true },
+        { "id": "b", "text": "Boolean", "isCorrect": true },
+        { "id": "c", "text": "Float", "isCorrect": false },
+        { "id": "d", "text": "Number", "isCorrect": true },
+        { "id": "e", "text": "Character", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 12,
+      "text": "Which of these are frontend libraries or frameworks?",
+      "reward": 1000000,
+      "answers": [
+        { "id": "a", "text": "React", "isCorrect": true },
+        { "id": "b", "text": "Express", "isCorrect": false },
+        { "id": "c", "text": "Vue", "isCorrect": true },
+        { "id": "d", "text": "Angular", "isCorrect": true }
+      ]
+    }
+  ]
+}
+
