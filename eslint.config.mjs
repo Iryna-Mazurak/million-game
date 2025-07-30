@@ -1,23 +1,32 @@
-import js from '@eslint/js';
-import { defineConfig } from 'eslint/config';
-import pluginImport from 'eslint-plugin-import';
-import pluginReact from 'eslint-plugin-react';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-export default defineConfig([
+import { FlatCompat } from '@eslint/eslintrc';
+import globals from 'globals';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+const config = [
   {
     ignores: ['.next/**'],
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    plugins: {
-      js,
-      import: pluginImport,
+  },
+  ...compat.config({
+    extends: ['next/core-web-vitals'],
+  }),
+
+  {
+    files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
     },
-    extends: ['js/recommended'],
-    languageOptions: { globals: globals.browser },
     rules: {
-      quotes: ['error', 'single'],
-      'jsx-quotes': ['error', 'prefer-single'],
       'import/order': [
         'error',
         {
@@ -29,7 +38,23 @@ export default defineConfig([
             'sibling',
             'index',
           ],
-          'newlines-between': 'always',
+          pathGroups: [
+            {
+              pattern: 'react',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: 'next/**',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: '@/**',
+              group: 'internal',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['react'],
           alphabetize: {
             order: 'asc',
             caseInsensitive: true,
@@ -38,6 +63,6 @@ export default defineConfig([
       ],
     },
   },
-  tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-]);
+];
+
+export default config;

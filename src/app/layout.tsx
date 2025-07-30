@@ -1,6 +1,5 @@
-import type { Metadata } from 'next';
 import React from 'react';
-
+import type { Metadata } from 'next';
 import { GameProvider } from '@/features/game/GameProvider';
 
 export const metadata: Metadata = {
@@ -14,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body>
         <GameProvider>{children}</GameProvider>
       </body>

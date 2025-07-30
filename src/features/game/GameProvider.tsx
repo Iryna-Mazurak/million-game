@@ -1,9 +1,8 @@
 'use client';
 import React, { createContext, useState, useContext, useCallback } from 'react';
-
 import { Question } from '@/types';
 
-type GameContextType = {
+interface GameContextType {
   questions: Question[];
   currentIndex: number;
   correctAnswers: number;
@@ -12,7 +11,7 @@ type GameContextType = {
   nextQuestion: () => void;
   resetGame: () => void;
   answerCorrect: (q: Question) => void;
-};
+}
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
 
@@ -34,10 +33,10 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({
     setCorrectQuestions([]);
   }, []);
 
-  const answerCorrect = (q: Question) => {
+  const answerCorrect = useCallback((q: Question) => {
     setCorrectAnswers((prev) => prev + 1);
     setCorrectQuestions((prev) => [...prev, q]);
-  };
+  }, []);
 
   return (
     <GameContext.Provider

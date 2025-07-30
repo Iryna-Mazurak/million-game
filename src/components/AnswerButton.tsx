@@ -1,9 +1,7 @@
-import clsx from 'clsx';
 import React from 'react';
-
-import styles from './AnswerButton.module.css';
-
+import clsx from 'clsx';
 import { Answer } from '@/types';
+import styles from './AnswerButton.module.css';
 
 interface Props {
   answer: Answer;

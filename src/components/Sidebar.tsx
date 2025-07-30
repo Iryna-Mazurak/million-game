@@ -1,8 +1,6 @@
 import React from 'react';
-
-import styles from './Sidebar.module.css';
-
 import { Question } from '@/types';
+import styles from './Sidebar.module.css';
 
 type SidebarProps = {
   questions: Question[];
