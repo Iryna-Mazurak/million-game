@@ -5,23 +5,21 @@
     align-items: center;
     justify-content: space-between;
     gap: 97px;
-    padding-bottom: 24px;
+    padding: 135px 0 24px;
     width: 100%;
     @media (min-width: 1280px) {
         align-items: flex-start;
-        padding-bottom: 122px;
+        padding: 135px 0 122px;
     }
 }
 
 .question {
-    margin-top: 136px;
     font-size: var(--base-font-size);
     font-weight: 600;
     text-align: center;
     padding-inline: var(--base-spacing);
     max-width: 624px;
     @media (min-width: 1280px) {
-        margin-top: 133px;
         text-align: left;
     }
 }
