@@ -11,11 +11,8 @@ interface Props {
 
 export default function AnswerButton({ answer, isSelected, onSelect }: Props) {
   return (
-    <li className={styles.wrapper}>
-      <button
-        className={clsx(styles.button, { [styles.selected]: isSelected })}
-        onClick={onSelect}
-      >
+    <li className={clsx(styles.wrapper, { [styles.selected]: isSelected })}>
+      <button className={styles.button} onClick={onSelect}>
         {answer.text}
       </button>
     </li>

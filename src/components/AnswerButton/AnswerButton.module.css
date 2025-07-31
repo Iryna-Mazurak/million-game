@@ -1,48 +1,51 @@
 .wrapper {
     display: flex;
     justify-content: center;
+    position: relative;
+    &:before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: var(--color-light-dark);
+        top: calc(50% - 0.5px);
+        left: 0;
+        transition: 0.3s ease;
+    }
+    &:hover {
+        &::before {
+            background-color: var(--color-primary);
+        }
+        .button {
+            background-image: url('../../images/button-hover.png');
+        }
+    }
+    &.selected {
+        &::before {
+            background-color: var(--color-primary);
+        }
+        .button {
+            background-image: url('../../images/button-selected.png');
+        }
+    }
 }
 
 .button {
-    width: calc(100% - 34px);
-    border: 1px solid var(--color-light-dark);
-    border-radius: 50px;
+    width: 288px;
+    border: none;
     font-size: var(--text-font-size);
-    background-color: var(--color-light);
     padding: 20px 24px;
     text-align: left;
     position: relative;
     cursor: pointer;
+    background-image: url('../../images/button-inactive.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
     transition: 0.3s ease;
     @media (min-width: 1280px) {
         padding: 24px 49px;
-    }
-    &::before, &::after {
-        content: '';
-        position: absolute;
-        width: 17px;
-        height: 1px;
-        top: 50%;
-        background-color: var(--color-light-dark);
-        transition: 0.3s ease;
-    }
-    &::before {
-        left: -18px;
-    }
-    &::after {
-        right: -18px;
-    }
-    &:hover {
-        border-color: var(--color-primary);
-        &::before, &::after {
-            background-color: var(--color-primary);
-        }
-    }
-    &.selected {
-        background-color: var(--color-primary-bg);
-        border-color: var(--color-primary);
-        &::before, &::after {
-            background-color: var(--color-primary);
-        }
+        width: 389px;
     }
 }
