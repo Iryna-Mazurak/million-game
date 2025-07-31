@@ -7,6 +7,7 @@ interface Props {
   answer: Answer;
   isSelected: boolean;
   isCorrectAnswer?: boolean;
+  isWrongAnswer?: boolean;
   onSelect: () => void;
 }
 
@@ -14,6 +15,7 @@ export default function AnswerButton({
   answer,
   isSelected,
   isCorrectAnswer,
+  isWrongAnswer,
   onSelect,
 }: Props) {
   return (
@@ -21,6 +23,7 @@ export default function AnswerButton({
       className={clsx(styles.wrapper, {
         [styles.selected]: isSelected,
         [styles.correct]: isCorrectAnswer,
+        [styles.wrong]: isWrongAnswer,
       })}
     >
       <button className={styles.button} onClick={onSelect}>

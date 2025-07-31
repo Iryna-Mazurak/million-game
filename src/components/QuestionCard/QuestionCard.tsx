@@ -17,11 +17,13 @@ export default function QuestionCard({ question }: Props) {
 
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+  const [wrongAnswerId, setWrongAnswerId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!question) return;
     setSelectedIds([]);
     setShowCorrectAnswer(false);
+    setWrongAnswerId(null);
   }, [question]);
 
   const correctIds = useMemo(() => {
@@ -66,27 +68,29 @@ export default function QuestionCard({ question }: Props) {
   const toggleAnswer = (id: string) => {
     if (!question) return;
 
-    const answer = question?.answers.find((a) => a.id === id);
+    const answer = question.answers.find((a) => a.id === id);
     if (!answer) return;
 
     if (!isMultipleCorrect) {
-      if (answer.isCorrect) {
-        setSelectedIds([id]);
-        answerCorrect(question);
+      setSelectedIds([id]);
 
+      if (answer.isCorrect) {
+        answerCorrect(question);
         setTimeout(() => setShowCorrectAnswer(true), 1000);
         setTimeout(() => {
           setShowCorrectAnswer(false);
           nextQuestion();
         }, 2000);
       } else {
-        router.push('/finish');
+        setTimeout(() => setWrongAnswerId(id), 1000);
+        setTimeout(() => router.push('/finish'), 2000);
       }
       return;
     }
 
     if (!answer.isCorrect) {
-      router.push('/finish');
+      setTimeout(() => setWrongAnswerId(id), 1000);
+      setTimeout(() => router.push('/finish'), 2000);
       return;
     }
 
@@ -105,6 +109,7 @@ export default function QuestionCard({ question }: Props) {
             answer={answer}
             isSelected={selectedIds.includes(answer.id)}
             isCorrectAnswer={showCorrectAnswer && answer.isCorrect}
+            isWrongAnswer={wrongAnswerId === answer.id}
             onSelect={() => toggleAnswer(answer.id)}
           />
         ))}
