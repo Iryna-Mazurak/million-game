@@ -30,7 +30,9 @@ export default function Sidebar({
                 isCurrent ? styles.current : isCorrect ? styles.correct : ''
               }`}
             >
-              ${q.reward.toLocaleString()}
+              <span className={styles.itemContent}>
+                ${q.reward.toLocaleString()}
+              </span>
             </li>
           );
         })}
