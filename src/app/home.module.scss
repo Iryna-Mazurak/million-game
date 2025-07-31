@@ -1,48 +1,15 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 24px;
-  height: 100vh;
-  position: relative;
-  padding: 48px 16px;
-  @media (min-width: 1280px) {
-    flex-direction: row;
-    padding-inline: 80px;
-    gap: 32px;
-  }
-  &Bg {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: linear-gradient(to top left, var(--color-primary-bg) 50%, var(--color-light) 50%);
-  }
-}
-
-.hand {
-  @media (min-width: 1280px) {
-    zoom: 2.2;
-  }
+.containerBg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(to top left, var(--color-primary-bg) 50%, var(--color-light) 50%);
 }
 
 .text {
   @media (min-width: 1280px) {
     min-width: 624px;
-  }
-}
-
-.title {
-  font-size: 32px;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 100px;
-  @media (min-width: 1280px) {
-    text-align: left;
-    font-size: 56px;
-    margin-bottom: 64px;
   }
 }

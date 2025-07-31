@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from '@/app/home.module.scss';
+import styles from './home.module.scss';
 
 export default function Home() {
   return (
-    <main className={styles.container}>
+    <main className="container">
       <svg
-        className={styles.hand}
+        className="hand"
         xmlns="http://www.w3.org/2000/svg"
         width="288"
         height="192"
@@ -89,8 +89,8 @@ export default function Home() {
           fill="#FFD62A"
         />
       </svg>
-      <div className={styles.text}>
-        <h1 className={styles.title}>
+      <div className="text">
+        <h1 className="title">
           Who wants to be
           <br />a millionaire?
         </h1>

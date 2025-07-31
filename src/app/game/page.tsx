@@ -3,11 +3,11 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-
 import QuestionCard from '@/components/QuestionCard';
 import Sidebar from '@/components/Sidebar';
 import config from '@/data/config.json';
 import { useGameContext } from '@/features/game/GameProvider';
+import styles from './game.module.scss';
 
 export default function GamePage() {
   const { questions, setQuestions, currentIndex, correctQuestions } =
@@ -31,7 +31,7 @@ export default function GamePage() {
   if (currentIndex >= questions.length) return null;
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <QuestionCard question={questions[currentIndex]} />
       <Sidebar
         questions={questions}
