@@ -28,6 +28,22 @@
             background-image: url('../../images/button-selected.png');
         }
     }
+    &.correct {
+        &::before {
+            background-color: var(--color-secondary);
+        }
+        .button {
+            background-image: url('../../images/button-correct.png');
+        }
+    }
+    &.wrong {
+        &::before {
+            background-color: var(--color-error);
+        }
+        .button {
+            background-image: url('../../images/button-wrong.png');
+        }
+    }
 }
 
 .button {

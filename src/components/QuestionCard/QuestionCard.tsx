@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import AnswerButton from '@/components/AnswerButton';
 import { useGameContext } from '@/features/game/GameProvider';
@@ -15,20 +14,21 @@ interface Props {
 export default function QuestionCard({ question }: Props) {
   const { answerCorrect, nextQuestion } = useGameContext();
   const router = useRouter();
+
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
 
   useEffect(() => {
     if (!question) return;
     setSelectedIds([]);
+    setShowCorrectAnswer(false);
   }, [question]);
 
   const correctIds = useMemo(() => {
     return question?.answers.filter((a) => a.isCorrect).map((a) => a.id) || [];
   }, [question]);
 
-  const isMultipleCorrect = useMemo(() => {
-    return correctIds.length > 1;
-  }, [correctIds]);
+  const isMultipleCorrect = useMemo(() => correctIds.length > 1, [correctIds]);
 
   useEffect(() => {
     if (!question || !isMultipleCorrect) return;
@@ -39,10 +39,20 @@ export default function QuestionCard({ question }: Props) {
 
     if (allCorrectSelected) {
       answerCorrect(question);
-      const timer = setTimeout(() => {
+
+      const showTimer = setTimeout(() => {
+        setShowCorrectAnswer(true);
+      }, 1000);
+
+      const nextTimer = setTimeout(() => {
+        setShowCorrectAnswer(false);
         nextQuestion();
       }, 2000);
-      return () => clearTimeout(timer);
+
+      return () => {
+        clearTimeout(showTimer);
+        clearTimeout(nextTimer);
+      };
     }
   }, [
     selectedIds,
@@ -53,19 +63,20 @@ export default function QuestionCard({ question }: Props) {
     nextQuestion,
   ]);
 
-  if (!question) {
-    return <p>Loading question...</p>;
-  }
-
   const toggleAnswer = (id: string) => {
-    const answer = question.answers.find((a) => a.id === id);
+    if (!question) return;
+
+    const answer = question?.answers.find((a) => a.id === id);
     if (!answer) return;
 
     if (!isMultipleCorrect) {
       if (answer.isCorrect) {
         setSelectedIds([id]);
         answerCorrect(question);
+
+        setTimeout(() => setShowCorrectAnswer(true), 1000);
         setTimeout(() => {
+          setShowCorrectAnswer(false);
           nextQuestion();
         }, 2000);
       } else {
@@ -82,6 +93,8 @@ export default function QuestionCard({ question }: Props) {
     setSelectedIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
   };
 
+  if (!question) return <p>Loading question...</p>;
+
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.question}>{question.text}</h2>
@@ -91,6 +104,7 @@ export default function QuestionCard({ question }: Props) {
             key={answer.id}
             answer={answer}
             isSelected={selectedIds.includes(answer.id)}
+            isCorrectAnswer={showCorrectAnswer && answer.isCorrect}
             onSelect={() => toggleAnswer(answer.id)}
           />
         ))}
