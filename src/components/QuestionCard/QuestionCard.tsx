@@ -33,14 +33,15 @@ export default function QuestionCard({ question }: Props) {
   useEffect(() => {
     if (!question || !isMultipleCorrect) return;
 
-    const allCorrectSelected = correctIds.every((id) =>
-      selectedIds.includes(id),
-    );
-    if (allCorrectSelected && selectedIds.length === correctIds.length) {
+    const allCorrectSelected =
+      correctIds.every((id) => selectedIds.includes(id)) &&
+      selectedIds.length === correctIds.length;
+
+    if (allCorrectSelected) {
       answerCorrect(question);
       const timer = setTimeout(() => {
         nextQuestion();
-      }, 300);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [
@@ -62,8 +63,11 @@ export default function QuestionCard({ question }: Props) {
 
     if (!isMultipleCorrect) {
       if (answer.isCorrect) {
+        setSelectedIds([id]);
         answerCorrect(question);
-        nextQuestion();
+        setTimeout(() => {
+          nextQuestion();
+        }, 2000);
       } else {
         router.push('/finish');
       }
