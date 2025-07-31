@@ -1,14 +1,17 @@
 import React from 'react';
+import clsx from 'clsx';
 import { Question } from '@/types';
 import styles from './Sidebar.module.css';
 
 type SidebarProps = {
+  isOpen?: boolean;
   questions: Question[];
   currentIndex: number;
   correctQuestions: Question[];
 };
 
 export default function Sidebar({
+  isOpen,
   questions,
   currentIndex,
   correctQuestions,
@@ -18,7 +21,11 @@ export default function Sidebar({
   const currentReward = currentQuestion ? currentQuestion.reward : 0;
 
   return (
-    <aside className={styles.sidebar}>
+    <aside
+      className={clsx(styles.sidebar, {
+        [styles.active]: isOpen,
+      })}
+    >
       <ul className={styles.list}>
         {reversedQuestions.map((q) => {
           const isCurrent = q.reward === currentReward;
