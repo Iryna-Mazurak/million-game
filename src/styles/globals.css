@@ -1,4 +1,6 @@
 @import './common/colors.css';
+@import './common/typography.css';
+@import './common/spacing.css';
 
 :root {
   --font-inter: 'Inter', sans-serif;
@@ -10,6 +12,7 @@ body {
   font-family: var(--font-inter), sans-serif;
   color: var(--color-dark);
   line-height: 1.15;
+  overflow: hidden;
 }
 
 * {
@@ -26,10 +29,9 @@ body {
   gap: 24px;
   height: 100vh;
   position: relative;
-  padding: 48px 16px;
+  padding: 48px var(--base-spacing);
   @media (min-width: 1280px) {
     flex-direction: row;
-    padding-inline: 80px;
     gap: 32px;
   }
 }
@@ -47,13 +49,12 @@ body {
 }
 
 .title {
-  font-size: 32px;
+  font-size: var(--title-font-size);
   text-align: center;
   font-weight: 600;
   margin-bottom: 100px;
   @media (min-width: 1280px) {
     text-align: left;
-    font-size: 56px;
     margin-bottom: 64px;
   }
 }

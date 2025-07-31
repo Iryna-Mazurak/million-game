@@ -1,0 +1,6 @@
+:root {
+  --base-spacing: 16px;
+  @media (min-width: 1280px) {
+    --base-spacing: 80px;
+  }
+}

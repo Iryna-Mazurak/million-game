@@ -11,11 +11,13 @@ interface Props {
 
 export default function AnswerButton({ answer, isSelected, onSelect }: Props) {
   return (
-    <button
-      className={clsx(styles.button, { [styles.selected]: isSelected })}
-      onClick={onSelect}
-    >
-      {answer.text}
-    </button>
+    <li className={styles.wrapper}>
+      <button
+        className={clsx(styles.button, { [styles.selected]: isSelected })}
+        onClick={onSelect}
+      >
+        {answer.text}
+      </button>
+    </li>
   );
 }

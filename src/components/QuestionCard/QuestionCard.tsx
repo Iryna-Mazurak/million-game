@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import AnswerButton from '@/components/AnswerButton';
 import { useGameContext } from '@/features/game/GameProvider';
 import { Question } from '@/types';
+import styles from './QuestionCard.module.css';
 
 interface Props {
   question?: Question;
@@ -78,9 +79,9 @@ export default function QuestionCard({ question }: Props) {
   };
 
   return (
-    <div>
-      <h2>{question.text}</h2>
-      <div>
+    <div className={styles.wrapper}>
+      <h2 className={styles.question}>{question.text}</h2>
+      <ul className={styles.list}>
         {question.answers.map((answer) => (
           <AnswerButton
             key={answer.id}
@@ -89,7 +90,7 @@ export default function QuestionCard({ question }: Props) {
             onSelect={() => toggleAnswer(answer.id)}
           />
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
