@@ -13,6 +13,23 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Millionaire Game',
   description: 'Who wants to be a millionaire?',
+  icons: {
+    icon: '/favicon.ico',
+  },
+  openGraph: {
+    title: 'Millionaire Game',
+    description: 'Who wants to be a millionaire?',
+    siteName: 'Millionaire Game',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Millionaire Game Preview',
+      },
+    ],
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
