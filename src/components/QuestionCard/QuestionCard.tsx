@@ -30,7 +30,7 @@ export default function QuestionCard({ question }: Props) {
     return question?.answers.filter((a) => a.isCorrect).map((a) => a.id) || [];
   }, [question]);
 
-  const isMultipleCorrect = useMemo(() => correctIds.length > 1, [correctIds]);
+  const isMultipleCorrect = correctIds.length > 1;
 
   useEffect(() => {
     if (!question || !isMultipleCorrect) return;
@@ -42,19 +42,11 @@ export default function QuestionCard({ question }: Props) {
     if (allCorrectSelected) {
       answerCorrect(question);
 
-      const showTimer = setTimeout(() => {
-        setShowCorrectAnswer(true);
-      }, 1000);
-
-      const nextTimer = setTimeout(() => {
+      setTimeout(() => setShowCorrectAnswer(true), 1000);
+      setTimeout(() => {
         setShowCorrectAnswer(false);
         nextQuestion();
       }, 2000);
-
-      return () => {
-        clearTimeout(showTimer);
-        clearTimeout(nextTimer);
-      };
     }
   }, [
     selectedIds,
