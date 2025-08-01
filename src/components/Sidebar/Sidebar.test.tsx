@@ -125,4 +125,9 @@ describe('Sidebar', () => {
 
     expect(aside).not.toHaveClass(styles.active);
   });
+
+  test('debug run', () => {
+    console.log('🔥 Тести запустилися!');
+    expect(true).toBe(true);
+  });
 });
