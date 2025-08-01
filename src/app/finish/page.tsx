@@ -1,15 +1,23 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useGameContext } from '@/features/game/GameProvider';
 import styles from './finish.module.scss';
 
 export default function FinishPage() {
   const { questions, currentIndex, resetGame } = useGameContext();
+  const router = useRouter();
 
   const reward =
     currentIndex > 0 ? (questions[currentIndex - 1]?.reward ?? 0) : 0;
+
+  function handleTryAgain() {
+    router.push('/');
+    setTimeout(() => {
+      resetGame();
+    }, 100);
+  }
 
   return (
     <main className="container">
@@ -100,9 +108,9 @@ export default function FinishPage() {
       <div className="text">
         <p className={styles.totalText}>Total score:</p>
         <h1 className="title">${reward.toLocaleString()} earned</h1>
-        <Link href="/" className="buttonPrimary" onClick={resetGame}>
+        <button onClick={handleTryAgain} className="buttonPrimary">
           Try Again
-        </Link>
+        </button>
       </div>
     </main>
   );
