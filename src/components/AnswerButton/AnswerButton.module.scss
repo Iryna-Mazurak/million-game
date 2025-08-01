@@ -1,73 +1,73 @@
 .wrapper {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    &:before {
-        position: absolute;
-        content: '';
-        width: 100%;
-        height: 1px;
-        background-color: var(--color-light-dark);
-        top: calc(50% - 0.5px);
-        left: 0;
-        transition: 0.3s ease;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  &:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-light-dark);
+    top: calc(50% - 0.5px);
+    left: 0;
+    transition: 0.3s ease;
+  }
+  &:hover {
+    &::before {
+      background-color: var(--color-primary);
     }
-    &:hover {
-        &::before {
-            background-color: var(--color-primary);
-        }
-        .button {
-            background-image: url('../../images/button-hover.png');
-        }
+    .button {
+      background-image: url('../../images/button-hover.png');
     }
-    &.selected {
-        &::before {
-            background-color: var(--color-primary);
-        }
-        .button {
-            background-image: url('../../images/button-selected.png');
-        }
+  }
+  &.selected {
+    &::before {
+      background-color: var(--color-primary);
     }
-    &.correct {
-        &::before {
-            background-color: var(--color-secondary);
-        }
-        .button {
-            background-image: url('../../images/button-correct.png');
-        }
+    .button {
+      background-image: url('../../images/button-selected.png');
     }
-    &.wrong {
-        &::before {
-            background-color: var(--color-error);
-        }
-        .button {
-            background-image: url('../../images/button-wrong.png');
-        }
+  }
+  &.correct {
+    &::before {
+      background-color: var(--color-secondary);
     }
+    .button {
+      background-image: url('../../images/button-correct.png');
+    }
+  }
+  &.wrong {
+    &::before {
+      background-color: var(--color-error);
+    }
+    .button {
+      background-image: url('../../images/button-wrong.png');
+    }
+  }
 }
 
 .button {
-    width: 288px;
-    border: none;
-    font-size: var(--text-font-size);
-    padding: 20px 24px;
-    text-align: left;
-    position: relative;
-    cursor: pointer;
-    background-image: url('../../images/button-inactive.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: transparent;
-    transition: 0.3s ease;
-    @media (min-width: 1280px) {
-        padding: 24px 49px;
-        width: 389px;
-    }
+  width: 288px;
+  border: none;
+  font-size: var(--text-font-size);
+  padding: 20px 24px;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  background-image: url('../../images/button-inactive.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  transition: 0.3s ease;
+  @media (min-width: 1280px) {
+    padding: 24px 49px;
+    width: 389px;
+  }
 }
 
 .letter {
-    color: var(--color-primary);
-    margin-right: 8px;
-    text-transform: uppercase;
+  color: var(--color-primary);
+  margin-right: 8px;
+  text-transform: uppercase;
 }
