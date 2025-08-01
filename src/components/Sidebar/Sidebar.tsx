@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Question } from '@/types';
-import styles from './Sidebar.module.css';
+import styles from './Sidebar.module.scss';
 
 type SidebarProps = {
   isOpen?: boolean;

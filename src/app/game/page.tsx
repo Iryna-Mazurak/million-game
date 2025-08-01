@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import clsx from 'clsx';
+import BurgerButton from '@/components/BurgerButton';
 import QuestionCard from '@/components/QuestionCard';
 import Sidebar from '@/components/Sidebar';
 import config from '@/data/config.json';
@@ -32,17 +32,10 @@ export default function GamePage() {
 
   return (
     <div className={styles.wrapper}>
-      <button
-        className={clsx(styles.burgerMenu, {
-          [styles.active]: isSidebarOpen,
-        })}
-        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-      >
-        <div className={styles.burgerMenuItem}></div>
-        <div className={styles.burgerMenuItem}></div>
-        <div className={styles.burgerMenuItem}></div>
-      </button>
-
+      <BurgerButton
+        isOpen={isSidebarOpen}
+        onToggle={() => setIsSidebarOpen((prev) => !prev)}
+      />
       <QuestionCard question={questions[currentIndex]} />
       <Sidebar
         isOpen={isSidebarOpen}

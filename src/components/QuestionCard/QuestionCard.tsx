@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import AnswerButton from '@/components/AnswerButton';
 import { useGameContext } from '@/features/game/GameProvider';
 import { Question } from '@/types';
-import styles from './QuestionCard.module.css';
+import styles from './QuestionCard.module.scss';
 
 interface Props {
   question?: Question;
