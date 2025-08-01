@@ -30,9 +30,6 @@ Ensure you have the following installed:
    npm run dev
    ```
 
-### Build for production
-To build the project for production, run:
-
 ## Development
 
 ### Available Scripts
