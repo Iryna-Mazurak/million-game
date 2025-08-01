@@ -3,7 +3,7 @@ import { vi } from 'vitest';
 import AnswerButton from './AnswerButton';
 import styles from './AnswerButton.module.scss';
 const mockAnswer = {
-  id: '1',
+  id: 'A',
   text: 'Sample answer',
   isCorrect: true,
 };
@@ -13,7 +13,7 @@ describe('AnswerButton', () => {
     render(
       <AnswerButton
         answer={mockAnswer}
-        index={0}
+        id={mockAnswer.id}
         isSelected={false}
         onSelect={() => {}}
       />,
@@ -29,7 +29,7 @@ describe('AnswerButton', () => {
     render(
       <AnswerButton
         answer={mockAnswer}
-        index={0}
+        id={mockAnswer.id}
         isSelected={false}
         onSelect={onSelect}
       />,
@@ -43,7 +43,7 @@ describe('AnswerButton', () => {
     render(
       <AnswerButton
         answer={mockAnswer}
-        index={0}
+        id={mockAnswer.id}
         isSelected={true}
         onSelect={() => {}}
       />,
@@ -58,7 +58,7 @@ describe('AnswerButton', () => {
     render(
       <AnswerButton
         answer={mockAnswer}
-        index={0}
+        id={mockAnswer.id}
         isCorrectAnswer={true}
         isSelected={false}
         onSelect={() => {}}
@@ -74,7 +74,7 @@ describe('AnswerButton', () => {
     render(
       <AnswerButton
         answer={mockAnswer}
-        index={0}
+        id={mockAnswer.id}
         isWrongAnswer={true}
         isSelected={false}
         onSelect={() => {}}
