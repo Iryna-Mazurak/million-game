@@ -33,9 +33,10 @@ export default function Sidebar({
           return (
             <li
               key={q.id}
-              className={`${styles.item} ${
-                isCurrent ? styles.current : isCorrect ? styles.correct : ''
-              }`}
+              className={clsx(styles.item, {
+                [styles.current]: isCurrent,
+                [styles.correct]: !isCurrent && isCorrect,
+              })}
             >
               <span className={styles.itemContent}>
                 ${q.reward.toLocaleString()}
