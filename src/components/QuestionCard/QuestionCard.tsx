@@ -105,7 +105,7 @@ export default function QuestionCard({ question }: Props) {
       <ul className={styles.list}>
         {question.answers.map((answer) => (
           <AnswerButton
-            key={answer.id}
+            key={`${question.id}-${answer.id}`}
             answer={answer}
             isSelected={selectedIds.includes(answer.id)}
             isCorrectAnswer={showCorrectAnswer && answer.isCorrect}
