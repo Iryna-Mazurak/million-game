@@ -13,3 +13,22 @@
     min-width: 624px;
   }
 }
+
+.preloadImages {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    background-image: url('../images/button-inactive.png'),
+    url('../images/button-hover.png'),
+    url('../images/button-selected.png'),
+    url('../images/button-correct.png'),
+    url('../images/button-wrong.png');
+  }
+}

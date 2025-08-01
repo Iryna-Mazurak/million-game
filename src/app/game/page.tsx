@@ -46,7 +46,6 @@ export default function GamePage() {
         currentIndex={currentIndex}
         correctQuestions={correctQuestions}
       />
-      <div className={styles.preloadImages}></div>
     </div>
   );
 }

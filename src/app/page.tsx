@@ -99,6 +99,7 @@ export default function Home() {
         </Link>
       </div>
       <div className={styles.containerBg}></div>
+      <div className={styles.preloadImages}></div>
     </main>
   );
 }
