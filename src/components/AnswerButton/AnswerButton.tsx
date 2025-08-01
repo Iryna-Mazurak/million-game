@@ -28,7 +28,13 @@ export default function AnswerButton({
         [styles.wrong]: isWrongAnswer,
       })}
     >
-      <button className={styles.button} onClick={onSelect}>
+      <button
+        className={styles.button}
+        onClick={(e) => {
+          e.currentTarget.blur();
+          onSelect();
+        }}
+      >
         <span className={styles.letter}>{id}</span>
         {answer.text}
       </button>
