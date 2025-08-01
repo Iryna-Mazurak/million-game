@@ -37,4 +37,12 @@
         column-gap: 0;
         row-gap: 32px;
     }
+    & > :last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 100%;
+        @media (min-width: 1280px) {
+            width: auto;
+        }
+    }
 }
