@@ -13,7 +13,9 @@ interface GameContextType {
   answerCorrect: (q: Question) => void;
 }
 
-const GameContext = createContext<GameContextType | undefined>(undefined);
+export const GameContext = createContext<GameContextType | undefined>(
+  undefined,
+);
 
 export const GameProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
