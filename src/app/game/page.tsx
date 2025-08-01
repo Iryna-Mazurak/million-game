@@ -23,7 +23,10 @@ export default function GamePage() {
 
   useEffect(() => {
     if (!questions.length) {
-      setQuestions(config.questions);
+      const sortedQuestions = [...config.questions].sort(
+        (a, b) => a.reward - b.reward,
+      );
+      setQuestions(sortedQuestions);
     }
   }, [setQuestions, questions]);
 
