@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import styles from './Sidebar.module.scss';
 
 describe('Sidebar', () => {
-  test('Should render rewards list', () => {
+  test('renders rewards list', () => {
     render(
       <Sidebar
         questions={config.questions}
@@ -13,10 +13,12 @@ describe('Sidebar', () => {
       />,
     );
 
-    expect(screen.getByRole('list')).toBeInTheDocument();
+    const list = screen.getByRole('list');
+
+    expect(list).toBeInTheDocument();
   });
 
-  test('Should render 12 reward items', () => {
+  test('renders 12 reward items', () => {
     render(
       <Sidebar
         questions={config.questions}
@@ -25,10 +27,12 @@ describe('Sidebar', () => {
       />,
     );
 
-    expect(screen.getAllByRole('listitem')).toHaveLength(12);
+    const listitems = screen.getAllByRole('listitem');
+
+    expect(listitems).toHaveLength(12);
   });
 
-  test('Should render 5 listitem with correct className', () => {
+  test('renders 5 listitem with correct className', () => {
     const currentIndex = 5;
 
     render(
@@ -52,7 +56,7 @@ describe('Sidebar', () => {
     expect(correctCount).toBe(5);
   });
 
-  test('Should render 6 listitem without current and correct classNames', () => {
+  test('renders 6 listitem without current and correct classNames', () => {
     const currentIndex = 5;
 
     render(
@@ -79,7 +83,7 @@ describe('Sidebar', () => {
     expect(simpleListItemsCount).toBe(6);
   });
 
-  test('Should render 1 listitem with current className', () => {
+  test('renders only 1 listitem with current className', () => {
     const currentIndex = 5;
 
     render(
@@ -96,7 +100,7 @@ describe('Sidebar', () => {
     expect(items[currentIndex + 1]).toHaveClass(styles.current);
   });
 
-  test('Should add active className if isOpen is true', () => {
+  test('applies active className if isOpen is true', () => {
     render(
       <Sidebar
         isOpen={true}
@@ -111,7 +115,7 @@ describe('Sidebar', () => {
     expect(aside).toHaveClass(styles.active);
   });
 
-  test('Should not add active className if isOpen is false', () => {
+  test('not applies active className if isOpen is false', () => {
     render(
       <Sidebar
         isOpen={false}

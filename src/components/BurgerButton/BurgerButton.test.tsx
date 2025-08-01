@@ -5,14 +5,20 @@ import styles from './BurgerButton.module.scss';
 const mockToggle = vi.fn();
 
 describe('BurgerButton', () => {
-  test('Should render button', () => {
+  test('renders button', () => {
     render(<BurgerButton isOpen={false} onToggle={mockToggle} />);
-    expect(screen.getByRole('button')).toBeInTheDocument();
+
+    const button = screen.getByRole('button');
+
+    expect(button).toBeInTheDocument();
   });
 
-  test('Should add active className if isOpen is true', () => {
+  test('applies active className if isOpen is true', () => {
     render(<BurgerButton isOpen={true} onToggle={mockToggle} />);
+
     screen.getByRole('button').click();
-    expect(screen.getByRole('button')).toHaveClass(styles.active);
+    const button = screen.getByRole('button');
+
+    expect(button).toHaveClass(styles.active);
   });
 });
