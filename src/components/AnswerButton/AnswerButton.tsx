@@ -10,6 +10,7 @@ interface Props {
   isCorrectAnswer?: boolean;
   isWrongAnswer?: boolean;
   onSelect: () => void;
+  isDisabled?: boolean;
 }
 
 export default function AnswerButton({
@@ -19,6 +20,7 @@ export default function AnswerButton({
   isCorrectAnswer,
   isWrongAnswer,
   onSelect,
+  isDisabled,
 }: Props) {
   return (
     <li
@@ -28,7 +30,11 @@ export default function AnswerButton({
         [styles.wrong]: isWrongAnswer,
       })}
     >
-      <button className={styles.button} onClick={onSelect}>
+      <button
+        className={styles.button}
+        onClick={onSelect}
+        disabled={isDisabled}
+      >
         <span className={styles.letter}>{id}</span>
         {answer.text}
       </button>

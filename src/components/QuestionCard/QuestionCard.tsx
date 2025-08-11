@@ -19,16 +19,22 @@ export default function QuestionCard({ question }: Props) {
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [wrongAnswerId, setWrongAnswerId] = useState<string | null>(null);
 
+  const [disabledIds, setDisabledIds] = useState<string[]>([]);
+  const [allDisabled, setAllDisabled] = useState(false);
+
   useEffect(() => {
     if (!question) return;
     setSelectedIds([]);
     setShowCorrectAnswer(false);
     setWrongAnswerId(null);
+    setDisabledIds([]);
+    setAllDisabled(false);
   }, [question]);
 
-  const correctIds = useMemo(() => {
-    return question?.answers.filter((a) => a.isCorrect).map((a) => a.id) || [];
-  }, [question]);
+  const correctIds = useMemo(
+    () => question?.answers.filter((a) => a.isCorrect).map((a) => a.id) || [],
+    [question],
+  );
 
   const isMultipleCorrect = correctIds.length > 1;
 
@@ -40,6 +46,7 @@ export default function QuestionCard({ question }: Props) {
       selectedIds.length === correctIds.length;
 
     if (allCorrectSelected) {
+      setAllDisabled(true);
       answerCorrect(question);
 
       setTimeout(() => setShowCorrectAnswer(true), 1000);
@@ -61,10 +68,12 @@ export default function QuestionCard({ question }: Props) {
     if (!question) return;
 
     const answer = question.answers.find((a) => a.id === id);
+
     if (!answer) return;
 
     if (!isMultipleCorrect) {
       setSelectedIds([id]);
+      setAllDisabled(true);
 
       if (answer.isCorrect) {
         answerCorrect(question);
@@ -81,12 +90,14 @@ export default function QuestionCard({ question }: Props) {
     }
 
     if (!answer.isCorrect) {
+      setAllDisabled(true);
       setTimeout(() => setWrongAnswerId(id), 1000);
       setTimeout(() => router.push('/finish'), 2000);
       return;
     }
 
     setSelectedIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
+    setDisabledIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
   };
 
   if (!question) return <p>Loading question...</p>;
@@ -104,6 +115,7 @@ export default function QuestionCard({ question }: Props) {
             isCorrectAnswer={showCorrectAnswer && answer.isCorrect}
             isWrongAnswer={wrongAnswerId === answer.id}
             onSelect={() => toggleAnswer(answer.id)}
+            isDisabled={allDisabled || disabledIds.includes(answer.id)}
           />
         ))}
       </ul>
