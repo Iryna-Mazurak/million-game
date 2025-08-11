@@ -13,7 +13,7 @@
     },
     {
       "id": 2,
-      "text": "Which of these are version control systems?",
+      "text": "Which of these are version control systems? (Few are correct)",
       "reward": 1000,
       "answers": [
         { "id": "a", "text": "Git", "isCorrect": true },
@@ -35,7 +35,7 @@
     },
     {
       "id": 4,
-      "text": "Which HTTP methods are idempotent?",
+      "text": "Which HTTP methods are idempotent? (Few are correct)",
       "reward": 4000,
       "answers": [
         { "id": "a", "text": "GET", "isCorrect": true },
@@ -46,7 +46,7 @@
     },
     {
       "id": 5,
-      "text": "Which of the following are JavaScript frameworks?",
+      "text": "Which of the following are JavaScript frameworks? (Few are correct)",
       "reward": 8000,
       "answers": [
         { "id": "a", "text": "React", "isCorrect": true },
@@ -69,7 +69,7 @@
     },
     {
       "id": 7,
-      "text": "Which of these are NoSQL databases?",
+      "text": "Which of these are NoSQL databases? (Few are correct)",
       "reward": 32000,
       "answers": [
         { "id": "a", "text": "MongoDB", "isCorrect": true },
@@ -91,7 +91,7 @@
     },
     {
       "id": 9,
-      "text": "Which are valid HTTP status codes?",
+      "text": "Which are valid HTTP status codes? (Few are correct)",
       "reward": 125000,
       "answers": [
         { "id": "a", "text": "200", "isCorrect": true },
@@ -102,7 +102,7 @@
     },
     {
       "id": 10,
-      "text": "Select all programming paradigms that JavaScript supports.",
+      "text": "Select all programming paradigms that JavaScript supports. (Few are correct)",
       "reward": 250000,
       "answers": [
         { "id": "a", "text": "Object-Oriented", "isCorrect": true },
@@ -113,7 +113,7 @@
     },
     {
       "id": 11,
-      "text": "Select the valid JavaScript data types.",
+      "text": "Select the valid JavaScript data types. (Few are correct)",
       "reward": 500000,
       "answers": [
         { "id": "a", "text": "String", "isCorrect": true },
@@ -125,7 +125,7 @@
     },
     {
       "id": 12,
-      "text": "Which of these are frontend libraries or frameworks?",
+      "text": "Which of these are frontend libraries or frameworks? (Few are correct)",
       "reward": 1000000,
       "answers": [
         { "id": "a", "text": "React", "isCorrect": true },
